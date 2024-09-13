@@ -19,7 +19,7 @@ export const idlFactory = ({ IDL }) => {
         [IDL.Vec(PredefinedProduct)],
         ['query'],
       ),
-    'toggleItem' : IDL.Func([IDL.Nat], [IDL.Bool], []),
+    'toggleItem' : IDL.Func([IDL.Nat], [IDL.Opt(ShoppingItem)], []),
   });
 };
 export const init = ({ IDL }) => { return []; };

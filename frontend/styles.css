@@ -157,3 +157,35 @@ li button:hover {
         flex-direction: column;
     }
 }
+
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #48bb78;
+    color: #ffffff;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.notification.show {
+    opacity: 1;
+}
+
+.item-feedback {
+    animation: feedback-animation 0.3s ease-in-out;
+}
+
+@keyframes feedback-animation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

@@ -16,5 +16,5 @@ service : {
   deleteItem: (nat) -> (bool);
   getItems: () -> (vec ShoppingItem) query;
   getPredefinedProducts: () -> (vec PredefinedProduct) query;
-  toggleItem: (nat) -> (bool);
+  toggleItem: (nat) -> (opt ShoppingItem);
 }

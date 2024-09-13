@@ -110,17 +110,17 @@ actor {
     shoppingList
   };
 
-  public func toggleItem(id: Nat) : async Bool {
+  public func toggleItem(id: Nat) : async ?ShoppingItem {
     let index = Array.indexOf<ShoppingItem>({ id = id; description = ""; completed = false; emoji = "" }, shoppingList, func(a, b) { a.id == b.id });
     switch (index) {
-      case null { false };
+      case null { null };
       case (?i) {
         let item = shoppingList[i];
         let updatedItem = { id = item.id; description = item.description; completed = not item.completed; emoji = item.emoji };
         shoppingList := Array.tabulate(shoppingList.size(), func (j: Nat) : ShoppingItem {
           if (j == i) { updatedItem } else { shoppingList[j] }
         });
-        true
+        ?updatedItem
       };
     }
   };
