@@ -3,6 +3,7 @@ import { backend } from 'declarations/backend';
 const shoppingList = document.getElementById('shopping-list');
 const addItemForm = document.getElementById('add-item-form');
 const newItemInput = document.getElementById('new-item');
+const predefinedProductsContainer = document.getElementById('predefined-products');
 
 async function loadItems() {
     const items = await backend.getItems();
@@ -47,7 +48,24 @@ async function deleteItem(e) {
     await loadItems();
 }
 
+async function loadPredefinedProducts() {
+    const products = await backend.getPredefinedProducts();
+    predefinedProductsContainer.innerHTML = '';
+    products.forEach(product => {
+        const button = document.createElement('button');
+        button.textContent = product;
+        button.addEventListener('click', () => quickAddItem(product));
+        predefinedProductsContainer.appendChild(button);
+    });
+}
+
+async function quickAddItem(product) {
+    await backend.addItem(product);
+    await loadItems();
+}
+
 addItemForm.addEventListener('submit', addItem);
 
 // Initial load
 loadItems();
+loadPredefinedProducts();

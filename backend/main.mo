@@ -21,6 +21,12 @@ actor {
   stable var shoppingList: [ShoppingItem] = [];
   stable var nextId: Nat = 0;
 
+  // Predefined products
+  let predefinedProducts: [Text] = [
+    "Milk", "Bread", "Eggs", "Cheese", "Apples",
+    "Bananas", "Chicken", "Rice", "Pasta", "Tomatoes"
+  ];
+
   // Function to add a new item to the shopping list
   public func addItem(description: Text) : async Nat {
     let newItem: ShoppingItem = {
@@ -63,5 +69,10 @@ actor {
     } else {
       false
     }
+  };
+
+  // New query function to get predefined products
+  public query func getPredefinedProducts() : async [Text] {
+    predefinedProducts
   };
 }

@@ -8,6 +8,7 @@ export const idlFactory = ({ IDL }) => {
     'addItem' : IDL.Func([IDL.Text], [IDL.Nat], []),
     'deleteItem' : IDL.Func([IDL.Nat], [IDL.Bool], []),
     'getItems' : IDL.Func([], [IDL.Vec(ShoppingItem)], ['query']),
+    'getPredefinedProducts' : IDL.Func([], [IDL.Vec(IDL.Text)], ['query']),
     'toggleItem' : IDL.Func([IDL.Nat], [IDL.Bool], []),
   });
 };
