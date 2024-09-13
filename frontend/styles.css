@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 30px auto;
     padding: 20px;
     background-color: #ffffff;
@@ -21,6 +21,19 @@ h1 {
     color: #2d3748;
     font-weight: 600;
     margin-bottom: 30px;
+}
+
+.main-content {
+    display: flex;
+    gap: 30px;
+}
+
+.left-column {
+    flex: 1;
+}
+
+.right-column {
+    flex: 1;
 }
 
 #add-item-form {
@@ -137,4 +150,10 @@ li button:hover {
 
 .emoji {
     margin-right: 5px;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
 }

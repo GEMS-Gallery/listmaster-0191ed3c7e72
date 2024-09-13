@@ -10,12 +10,18 @@
 <body>
     <div class="container">
         <h1>Shopping List</h1>
-        <form id="add-item-form">
-            <input type="text" id="new-item" placeholder="Add a new item" required>
-            <button type="submit"><i class="fas fa-plus"></i></button>
-        </form>
-        <div id="predefined-products"></div>
-        <ul id="shopping-list"></ul>
+        <div class="main-content">
+            <div class="left-column">
+                <form id="add-item-form">
+                    <input type="text" id="new-item" placeholder="Add a new item" required>
+                    <button type="submit"><i class="fas fa-plus"></i></button>
+                </form>
+                <div id="predefined-products"></div>
+            </div>
+            <div class="right-column">
+                <ul id="shopping-list"></ul>
+            </div>
+        </div>
     </div>
     <script type="module" src="index.js"></script>
 </body>
